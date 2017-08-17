@@ -94,8 +94,10 @@ export class AppComponent {
       }
     });
 
-    this.addPoints(word);
+    var points = this.fibonacci(word.length)
     this.words.push(word);
+    this.points += points;
+    this.print("Added "+word+" for "+ points+" points.")
   }
 
   fibonacci(n): number{
@@ -104,10 +106,6 @@ export class AppComponent {
         array.push(array[i - 1] + array[i - 2]);
     }
     return array[n];
-  }
-
-  addPoints(word): void {
-    this.points += this.fibonacci(word.length)
   }
 
   print(message): void {
